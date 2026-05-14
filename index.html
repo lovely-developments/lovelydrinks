@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<title>Lovely Drinks — Coming Soon</title>
+
+<meta name="description" content="Lovely Drinks is returning with a focused range of premium botanical soft drinks crafted for restaurants, bars and people who appreciate proper flavour.">
+
+<style>
+
+:root{
+--bg:#f5f2ef;
+--panel:rgba(255,255,255,0.75);
+--text:#262220;
+--muted:#625c58;
+--line:#ddd5d1;
+--button:#ddd2d6;
+--button-hover:#d3c6cb;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Georgia,"Times New Roman",serif;
+color:var(--text);
+background:linear-gradient(180deg,#e9e5e2 0%,#f5f2ef 100%);
+line-height:1.6;
+}
+
+.page{
+width:min(1120px,calc(100% - 32px));
+margin:32px auto;
+background:var(--panel);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 14px 50px rgba(50,40,35,0.08);
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a {
+  color: #6f6864;      /* soft grey */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3f3a37;      /* slightly darker on hover */
+}
+
+.hero{
+min-height:680px;
+padding:60px 24px 90px;
+display:grid;
+place-items:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(248,246,244,0.35),rgba(248,246,244,0.35)),
+url("ef-bg.png") center/cover no-repeat;
+}
+
+.hero-inner{
+max-width:720px;
+}
+
+.logo{
+margin:0 auto 28px;
+width:min(220px,44vw);
+}
+
+.kicker{
+margin:0 0 14px;
+font-size:clamp(1.3rem,1rem + 1vw,1.9rem);
+}
+
+h1{
+margin:0;
+font-size:clamp(2.5rem,1.8rem + 2vw,4.5rem);
+font-weight:400;
+}
+
+.intro{
+margin:26px auto 32px;
+max-width:600px;
+font-size:1.1rem;
+color:var(--muted);
+}
+
+.button{
+display:inline-block;
+padding:14px 24px;
+border-radius:8px;
+background:var(--button);
+text-transform:uppercase;
+letter-spacing:0.12em;
+font-size:0.88rem;
+border:1px solid rgba(124,107,111,0.15);
+}
+
+.button:hover{
+background:var(--button-hover);
+}
+
+.divider{
+width:min(720px,calc(100% - 56px));
+margin:0 auto;
+text-align:center;
+}
+
+.divider:before{
+content:"";
+display:block;
+border-top:1px solid var(--line);
+transform:translateY(18px);
+}
+
+.divider span{
+background:#f5f2ef;
+padding:0 20px;
+color:#c6bab6;
+font-size:1.4rem;
+}
+
+.section{
+padding:78px 24px;
+text-align:center;
+background:rgba(248,246,244,0.76);
+}
+
+.section-inner{
+width:min(900px,100%);
+margin:auto;
+}
+
+h2{
+margin:0 0 26px;
+font-size:clamp(1.6rem,1.2rem + 1vw,2.3rem);
+letter-spacing:0.08em;
+text-transform:uppercase;
+font-weight:400;
+}
+
+.section p{
+margin:0 auto 20px;
+max-width:760px;
+font-size:1.2rem;
+color:var(--muted);
+}
+
+.range-grid{
+display:grid;
+grid-template-columns:1fr 1.1fr;
+gap:34px;
+align-items:center;
+text-align:left;
+margin-top:24px;
+}
+
+.drink-list{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.drink-list li{
+padding:10px 0;
+font-size:1.4rem;
+border-bottom:1px solid rgba(111,104,100,0.12);
+}
+
+.drink-note{
+margin-top:18px;
+font-style:italic;
+color:var(--muted);
+}
+
+.range-image{
+background:url("efr.png") center/cover no-repeat;
+min-height:460px;
+border-radius:6px;
+border:1px solid rgba(111,104,100,0.08);
+}
+
+.field-quote{
+margin-top:32px;
+font-size:1.25rem;
+font-style:italic;
+}
+
+.contact-wrap{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:24px;
+text-align:left;
+}
+
+.contact-card,
+.form-card{
+padding:30px;
+border:1px solid rgba(111,104,100,0.12);
+background:rgba(255,255,255,0.6);
+border-radius:12px;
+}
+
+.direct-email{
+font-size:1.15rem;
+border-bottom:1px solid rgba(111,104,100,0.2);
+}
+
+.thank-you{
+display:none;
+margin-bottom:25px;
+padding:16px;
+background:#eef5ee;
+border:1px solid #cddfcd;
+border-radius:8px;
+}
+
+.thank-you.show{
+display:block;
+}
+
+form{
+display:grid;
+gap:14px;
+}
+
+input,textarea{
+padding:12px;
+border-radius:8px;
+border:1px solid rgba(111,104,100,0.18);
+font-family:inherit;
+}
+
+textarea{
+min-height:120px;
+}
+
+footer{
+padding:34px 24px;
+text-align:center;
+font-size:0.95rem;
+color:var(--muted);
+border-top:1px solid rgba(111,104,100,0.08);
+}
+
+@media(max-width:860px){
+
+.range-grid,
+.contact-wrap{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.range-image{
+min-height:360px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="hero">
+<div class="hero-inner">
+
+<img class="logo" src="lovely-logo.png">
+
+<p class="kicker">Premium botanical soft drinks</p>
+
+<h1>A new chapter</h1>
+
+<p class="intro">
+Lovely Drinks is returning with a focused range of premium botanical soft drinks crafted for restaurants, bars and people who appreciate proper flavour.
+</p>
+
+<a class="button" href="#contact">Join the launch list</a>
+
+</div>
+</section>
+
+<div class="divider"><span>❦</span></div>
+
+<section class="section">
+
+<div class="section-inner">
+
+<h2>A new chapter for Lovely Drinks</h2>
+
+<p>
+Lovely Drinks returns with a focused range of premium botanical soft drinks — crafted for restaurants, bars and people who appreciate proper flavour.
+</p>
+
+<p>
+Clean ingredients. Elegant balance. Thoughtfully produced in Somerset.
+</p>
+
+</div>
+
+</section>
+
+<div class="divider"><span>❦</span></div>
+
+<section class="section">
+
+<div class="section-inner">
+
+<h2>The first range</h2>
+
+<p>
+Lightly carbonated and refreshingly balanced, our drinks are crafted using ingredients we grow ourselves or source from the UK wherever possible. Made with all natural ingredients, we use hand-picked wild elderflowers alongside English roses and English lavender to create clean, delicate botanical flavours with a true sense of place.
+</p>
+
+<div class="range-grid">
+
+<div>
+
+<ul class="drink-list">
+
+<li>Elderflower Presse</li>
+<li>Elderflower & Rose</li>
+<li>Apple & Elderflower</li>
+<li>Garden Lemonade</li>
+<li>Indian Tonic</li>
+<li>Light Tonic</li>
+<li>Elderflower Tonic</li>
+
+
+</ul>
+
+
+
+<p class="drink-note">
+Available in 250ml cans and bottles.
+</p>
+
+</div>
+
+<div class="range-image"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="divider"><span>❦</span></div>
+
+<section class="section">
+
+<div class="section-inner">
+
+<h2>From field to drink</h2>
+
+<p>
+Lovely Drinks is rooted in the Somerset countryside, where elderflower and other botanicals will increasingly shape the drinks we make.
+</p>
+
+<p>
+Some ingredients will always come from specialist growers further afield, but wherever possible we want to bring flavour closer to the land.
+</p>
+
+<p class="field-quote">
+Botanical flavour begins in the field.
+</p>
+
+</div>
+
+</section>
+
+<div class="divider"><span>❦</span></div>
+
+<section class="section" id="contact">
+
+<div class="section-inner">
+
+<div id="thankYouMessage" class="thank-you">
+Thank you — your message has been sent.
+</div>
+
+<h2>Launching soon</h2>
+
+<div class="contact-wrap">
+
+<div class="contact-card">
+
+<p>
+If you would like to hear when the first drinks are available or discuss trade opportunities please get in touch.
+</p>
+
+<p>
+<a class="direct-email" href="mailto:hello@lovely-drinks.co.uk">
+hello@lovely-drinks.co.uk
+</a>
+</p>
+
+<p>Somerset, England</p>
+
+</div>
+
+<div class="form-card">
+
+<p>Join the launch list or send us a note.</p>
+
+<form action="https://formsubmit.co/hello@lovely-drinks.co.uk" method="POST">
+
+<input type="hidden" name="_subject" value="Lovely Drinks enquiry">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://lovely-drinks.co.uk/?thanks=1#contact">
+
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Message</label>
+<textarea name="message"></textarea>
+
+<button class="button">Send message</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Lovely Drinks — Premium botanical soft drinks<br>
+<a href="mailto:hello@lovely-drinks.co.uk">
+hello@lovely-drinks.co.uk
+</a>
+
+</footer>
+
+</main>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+if(params.get("thanks")==="1"){
+document.getElementById("thankYouMessage").classList.add("show");
+}
+
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodAndDrink",
+  "name": "Lovely Drinks",
+  "description": "Premium botanical soft drinks including elderflower presse, tonic water and natural beverages.",
+  "brand": {
+    "@type": "Brand",
+    "name": "Lovely Drinks"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Somerset",
+    "addressCountry": "UK"
+  },
+  "email": "hello@lovely-drinks.co.uk",
+  "url": "https://lovely-drinks.co.uk"
+}
+</script>
+
+</body>
+</html>
